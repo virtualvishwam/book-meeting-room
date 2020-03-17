@@ -1,14 +1,23 @@
-<div class="bookingRoomDetailsCard" *ngFor="let meetingRoom of meetingRooms">
+<h1>Meeting Room Details</h1>
 
-    <h2>{{ meetingRoom.roomName }}:</h2>
+<div class="bookingRoomDetailsCard" *ngFor="let meetingRoom of meetingRooms; index as i">
 
-    <div class="bookingDetailsCard" *ngFor="let bookingDetails of meetingRoom.roomBookingDetails">
-        <div><b>Username:</b> {{ bookingDetails.username }}</div>
-        <div><b>Date:</b> {{ bookingDetails.bookingDate }}</div>
-        <div><b>Time:</b> {{ bookingDetails.bookingFromTime }} - {{ bookingDetails.bookingToTime }}</div>
-        <div><b>Agenda:</b> {{ bookingDetails.agenda }}</div>
+    <div class="roomNameHeading" *ngIf="!meetingRoom.expanded" (click)="meetingRoom.expanded = !meetingRoom.expanded;">
+        {{ meetingRoom.roomName }} &nbsp;&nbsp;&nbsp;&nbsp;+
+    </div>
+    <div class="roomNameHeading" *ngIf="meetingRoom.expanded" (click)="meetingRoom.expanded = !meetingRoom.expanded;">
+        {{ meetingRoom.roomName }} &nbsp;&nbsp;&nbsp;&nbsp;-
+    </div>
+
+    <div *ngIf="meetingRoom.expanded">
+        <div class="bookingDetailsCard" *ngFor="let bookingDetails of meetingRoom.roomBookingDetails">
+            <div><b>Username:</b> {{ bookingDetails.username }}</div>
+            <div><b>Date:</b> {{ bookingDetails.bookingDate }}</div>
+            <div><b>Time:</b> {{ bookingDetails.bookingFromTime }} - {{ bookingDetails.bookingToTime }}</div>
+            <div><b>Agenda:</b> {{ bookingDetails.agenda }}</div>
+        </div>
     </div>
 
 </div>
 
-<button (click)="bookAnotherRoom()">Book another Room</button>
+<button (click)="bookAnotherRoom()">Book Another Room</button>

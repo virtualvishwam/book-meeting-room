@@ -9,30 +9,29 @@ import { Router } from '@angular/router';
 })
 export class MeetingRoomBookingsComponent {
 
-  private get meetingRooms() {
-    let meetingRoomList = [];
+  private meetingRooms = [];
 
+
+  constructor(private meetingRoomData: MeetingRoomDataService, private router: Router) {
+    this.initializeData();
+  }
+
+  initializeData() {
     Object.keys(MeetingRoomDataService.meetingRoomBookingDetails).forEach(
       element => {
         let tempObj = {};
         tempObj['roomName'] = element;
+        tempObj['expanded'] = false;
         tempObj['roomBookingDetails'] = MeetingRoomDataService.meetingRoomBookingDetails[element];
 
-        meetingRoomList.push(tempObj);
+        this.meetingRooms.push(tempObj);
       }
     );
-
-    return meetingRoomList;
   }
-
-
-  constructor(private meetingRoomData: MeetingRoomDataService, private router:Router) {
-
-  }
-
 
   bookAnotherRoom() {
     this.router.navigate(['book']);
   }
+
 
 }

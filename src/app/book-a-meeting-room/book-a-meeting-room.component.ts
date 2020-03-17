@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CustomValidators } from '../custom-validators.service';
 
 @Component({
-  selector: 'app-book-ameeting-room',
+  selector: 'app-book-a-meeting-room',
   templateUrl: './book-a-meeting-room.component.html',
   styleUrls: ['./book-a-meeting-room.component.scss']
 })
@@ -39,7 +39,7 @@ export class BookAMeetingRoomComponent {
     ])
   }, {
     validators: [
-      
+      CustomValidators.toFromTimeChecker
     ]
   });
 

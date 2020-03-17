@@ -1,28 +1,31 @@
-<div class="bookingDetailsCard">
+
+<h1>Book a Meeting Room</h1>
+
+<div class="bookMeetingCard">
     <form [formGroup]="bookingForm">
-        <label for="username">Username:</label>
+        <label for="username">Username:&nbsp;</label>
         <input type="text" id="username" formControlName="username">
 
         <br><br>
-        <label for="meetingRoom">Meeting Room:</label>
+        <label for="meetingRoom">Meeting Room:&nbsp;</label>
         <select id="meetingRoom" formControlName="meetingRoom">
             <option *ngFor="let room of meetingRoomList" value="{{room}}">{{room}}</option>
         </select>
 
         <br><br>
-        <label for="bookingDate">Date:</label>
+        <label for="bookingDate">Date:&nbsp;</label>
         <input type="date" id="bookingDate" formControlName="bookingDate">
 
         <br><br>
-        <label for="bookingFromTime">Time From:</label>
+        <label for="bookingFromTime">Start Time:&nbsp;</label>
         <input type="time" id="bookingFromTime" formControlName="bookingFromTime">
 
         <br><br>
-        <label for="bookingToTime">Time Till:</label>
+        <label for="bookingToTime">End Time:&nbsp;</label>
         <input type="time" id="bookingToTime" formControlName="bookingToTime">
 
         <br><br>
-        <label for="agenda">Agenda:</label>
+        <label for="agenda">Agenda:&nbsp;</label>
         <textarea id="agenda" formControlName="agenda"></textarea>
 
         <br><br>

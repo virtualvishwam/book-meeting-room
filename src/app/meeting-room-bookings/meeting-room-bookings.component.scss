@@ -1,0 +1,24 @@
+.bookingRoomDetailsCard {
+    border: 1px solid black;
+    margin-bottom: 5px;
+
+    .roomNameHeading {
+        font-size: 1.2em;
+        background-color: lightgoldenrodyellow;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .bookingDetailsCard {
+        margin: 10px;
+        border-bottom: 1px solid lightgray;
+        padding: 10px;
+    }
+}
+
+button {
+    background-color: palegreen;
+    color: black;
+    width: 100%;
+    height: 40px;
+}
