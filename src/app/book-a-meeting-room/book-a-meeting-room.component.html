@@ -4,8 +4,8 @@
         <input type="text" id="username" formControlName="username">
 
         <br><br>
-        <label for="meetingRooms">Meeting Room:</label>
-        <select id="meetingRooms" formControlName="meetingRooms">
+        <label for="meetingRoom">Meeting Room:</label>
+        <select id="meetingRoom" formControlName="meetingRoom">
             <option *ngFor="let room of meetingRoomList" value="{{room}}">{{room}}</option>
         </select>
 
@@ -26,7 +26,7 @@
         <textarea id="agenda" formControlName="agenda"></textarea>
 
         <br><br>
-        <button [disabled]="bookingForm.invalid">Book Now</button>
+        <button [disabled]="bookingForm.invalid" (click)="submitBookingRequest()">Book Now</button>
     </form>
 
 </div>

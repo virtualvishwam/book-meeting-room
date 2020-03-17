@@ -7,10 +7,17 @@ export class MeetingRoomDataService {
 
   meetingRoomList = ['Bulbasaur','Charmandar','Squirtle','Pikachu','Jigglypuff','Abra','Gengar','Ditto','Mewtwo','Mew'];
 
-  meetingRoomBookingDetails = {
-    Bulbasaur : {
-      
-    }
+  static meetingRoomBookingDetails = {
+    Bulbasaur : [],
+    Charmandar : [],
+    Squirtle: [],
+    Pikachu: [],
+    Jigglypuff: [],
+    Abra: [],
+    Gengar:[],
+    Ditto: [],
+    Mewtwo: [],
+    Mew: []
   }
 
   constructor() { }

@@ -1,1 +1,14 @@
-<p>meeting-room-bookings works!</p>
+<div class="bookingRoomDetailsCard" *ngFor="let meetingRoom of meetingRooms">
+
+    <h2>{{ meetingRoom.roomName }}:</h2>
+
+    <div class="bookingDetailsCard" *ngFor="let bookingDetails of meetingRoom.roomBookingDetails">
+        <div><b>Username:</b> {{ bookingDetails.username }}</div>
+        <div><b>Date:</b> {{ bookingDetails.bookingDate }}</div>
+        <div><b>Time:</b> {{ bookingDetails.bookingFromTime }} - {{ bookingDetails.bookingToTime }}</div>
+        <div><b>Agenda:</b> {{ bookingDetails.agenda }}</div>
+    </div>
+
+</div>
+
+<button (click)="bookAnotherRoom()">Book another Room</button>
