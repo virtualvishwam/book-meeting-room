@@ -22,7 +22,7 @@ export class MeetingRoomDataService {
 
   constructor() { }
 
-  deleteBooking() {
-    // To be impemented
+  deleteBooking(roomName, index) {
+    MeetingRoomDataService.meetingRoomBookingDetails[roomName].splice(index,1);
   }
 }

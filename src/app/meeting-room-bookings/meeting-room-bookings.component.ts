@@ -33,5 +33,13 @@ export class MeetingRoomBookingsComponent {
     this.router.navigate(['book']);
   }
 
+  deleteBooking(roomName, index) {
+    let alertResponse = window.confirm('Do you want to delete this booking?');
+    if (alertResponse) {
+      this.meetingRoomData.deleteBooking(roomName, index);
+      this.initializeData();
+    }
+  }
+
 
 }

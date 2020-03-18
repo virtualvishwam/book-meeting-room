@@ -13,10 +13,15 @@
         margin: 10px;
         border-bottom: 1px solid lightgray;
         padding: 10px;
+
+        .deleteButton {
+            background-color: palegreen;
+            color: black;
+        }
     }
 }
 
-button {
+.bookAnotherRoomButton {
     background-color: palegreen;
     color: black;
     width: 100%;

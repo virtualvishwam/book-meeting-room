@@ -10,14 +10,15 @@
     </div>
 
     <div *ngIf="meetingRoom.expanded">
-        <div class="bookingDetailsCard" *ngFor="let bookingDetails of meetingRoom.roomBookingDetails">
+        <div class="bookingDetailsCard" *ngFor="let bookingDetails of meetingRoom.roomBookingDetails; index as j">
             <div><b>Username:</b> {{ bookingDetails.username }}</div>
             <div><b>Date:</b> {{ bookingDetails.bookingDate }}</div>
             <div><b>Time:</b> {{ bookingDetails.bookingFromTime }} - {{ bookingDetails.bookingToTime }}</div>
             <div><b>Agenda:</b> {{ bookingDetails.agenda }}</div>
+            <button (click)="deleteBooking(meetingRoom.roomName,j)" class="deleteButton">Delete</button>
         </div>
     </div>
 
 </div>
 
-<button (click)="bookAnotherRoom()">Book Another Room</button>
+<button (click)="bookAnotherRoom()" class="bookAnotherRoomButton">Book Another Room</button>
