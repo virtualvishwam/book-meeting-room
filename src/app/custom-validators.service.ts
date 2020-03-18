@@ -12,6 +12,7 @@ export class CustomValidators {
   static dateChecker: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     let bookingDate = new Date(control.value);
     let currentDate = new Date();
+    currentDate.setHours(0,0,0,0);  //Setting time to 0 for equals condition
 
     if(bookingDate < currentDate) {
       return { pastDateSelected: true }

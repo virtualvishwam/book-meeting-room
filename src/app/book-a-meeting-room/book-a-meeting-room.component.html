@@ -4,31 +4,64 @@
     <form [formGroup]="bookingForm">
         <label for="username">Username:&nbsp;</label>
         <input type="text" id="username" formControlName="username">
+        <div *ngIf="username.invalid && username.touched" class="alertText">
+            Username is required
+        </div>
 
         <br><br>
         <label for="meetingRoom">Meeting Room:&nbsp;</label>
         <select id="meetingRoom" formControlName="meetingRoom">
             <option *ngFor="let room of meetingRoomList" value="{{room}}">{{room}}</option>
         </select>
+        <div *ngIf="meetingRoom.invalid && meetingRoom.touched" class="alertText">
+            Meeting Room name is required
+        </div>
 
         <br><br>
         <label for="bookingDate">Date:&nbsp;</label>
         <input type="date" id="bookingDate" formControlName="bookingDate">
         <div *ngIf="bookingDate.invalid && bookingDate.touched" class="alertText">
-            Booking Date is required and cannot be less than current date
+            Meeting Date is required and cannot be less than current date
         </div>
 
         <br><br>
         <label for="bookingFromTime">Start Time:&nbsp;</label>
         <input type="time" id="bookingFromTime" formControlName="bookingFromTime">
+        <div *ngIf="bookingFromTime.invalid && bookingFromTime.touched" class="alertText">
+            <div *ngIf="bookingFromTime.errors.required">
+                Meeting start time is required
+            </div>
+            <div *ngIf="bookingFromTime.errors.timeOutOfLimit">
+                Meeting Start Time should be between 09:00AM to 06:00PM (18:00 hrs)
+            </div>
+        </div>
 
         <br><br>
         <label for="bookingToTime">End Time:&nbsp;</label>
         <input type="time" id="bookingToTime" formControlName="bookingToTime">
+        <div *ngIf="bookingToTime.invalid && bookingToTime.touched" class="alertText">
+            <div *ngIf="bookingToTime.errors.required">
+                Meeting End Time is required
+            </div>
+            <div *ngIf="bookingToTime.errors.timeOutOfLimit">
+                Meeting End Time should be between 09:00AM to 06:00PM (18:00 hrs)
+            </div>
+        </div>
+        <div *ngIf="bookingForm.invalid && bookingToTime.touched && bookingToTime.valid" class="alertText">
+            <div *ngIf="bookingForm.errors?.fromLessThanToTime">
+                End Time is less than Start Time
+            </div>
+            <div *ngIf="bookingForm.errors?.lessThanMinDuration">
+                Meeting duration should be minimum 30 minutes
+            </div>
+        </div>
 
         <br><br>
         <label for="agenda">Agenda:&nbsp;</label>
         <textarea id="agenda" formControlName="agenda"></textarea>
+        <div *ngIf="agenda.invalid && agenda.touched" class="alertText">
+            Meeting Agenda is required
+        </div>
 
         <br><br>
         <button [disabled]="bookingForm.invalid" (click)="submitBookingRequest()">Book Now</button>

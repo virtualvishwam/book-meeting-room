@@ -45,7 +45,6 @@ export class BookAMeetingRoomComponent {
 
 
 
-
   get username() {
     return this.bookingForm.get('username');
   }
@@ -82,11 +81,12 @@ export class BookAMeetingRoomComponent {
     let alertResponse = window.confirm('Do you want to make another booking?');
 
     if (alertResponse) {
-      this.bookingForm.reset();
+      //this.bookingForm.reset();
     }
     else {
       this.router.navigate(['meeting-room-bookings']);
     }
   }
+
 
 }
