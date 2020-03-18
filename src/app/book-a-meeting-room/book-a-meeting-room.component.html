@@ -1,4 +1,3 @@
-
 <h1>Book a Meeting Room</h1>
 
 <div class="bookMeetingCard">
@@ -15,6 +14,9 @@
         <br><br>
         <label for="bookingDate">Date:&nbsp;</label>
         <input type="date" id="bookingDate" formControlName="bookingDate">
+        <div *ngIf="bookingDate.invalid && bookingDate.touched" class="alertText">
+            Booking Date is required and cannot be less than current date
+        </div>
 
         <br><br>
         <label for="bookingFromTime">Start Time:&nbsp;</label>

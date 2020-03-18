@@ -21,4 +21,8 @@ export class MeetingRoomDataService {
   }
 
   constructor() { }
+
+  deleteBooking() {
+    // To be impemented
+  }
 }
